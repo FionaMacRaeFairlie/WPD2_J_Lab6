@@ -1,0 +1,23 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        {{#entries}}
+            <div>
+                <h4>{{subject}}</h4>
+                <p>
+                    {{contents}}
+                </p>
+                <div>
+                    <p>Written by {{author}} on {{published}}</p>
+                </div>
+            </div>
+            <hr>
+        {{/entries}}
+        {{^entries}}
+            No entries yet.
+        {{/entries}}
+    </body>
+</html>
