@@ -3,11 +3,15 @@ const router = express.Router();
 const controller = require('../controllers/guestbookControllers.js');
 router.get("/", controller.landing_page);
 router.get('/guestbook', controller.entries_list);
-router.get('/new', controller.new_entry);
+
 router.get('/about', function(req, res) {
     res.redirect('/about.html');
 })
 router.get('/peter', controller.peters_entries);
+router.get('/new', controller.new_entries);
+router.post('/new', controller.post_new_entry);
+router.get('/posts/:author', controller.show_user_entries);
+
 router.use(function(req, res) {
     res.status(404);
     res.type('text/plain');
