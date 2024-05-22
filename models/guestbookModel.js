@@ -1,4 +1,4 @@
-const nedb = require('nedb');
+const nedb = require('gray-nedb');
 class GuestBook {
     constructor(dbFilePath) {
         if (dbFilePath) {

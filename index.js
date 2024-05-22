@@ -1,14 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+require('dotenv').config()
+const cookieParser = require('cookie-parser') 
 const app = express();
 
-const path = require('path');
-const public = path.join(__dirname,'public');
-app.use(express.static(public));
-
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(cookieParser()) 
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 const mustache = require('mustache-express');
 app.engine('mustache', mustache());
